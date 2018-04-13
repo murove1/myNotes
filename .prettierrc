@@ -1,0 +1,10 @@
+{
+  "parser": "babylon",
+  "useTabs": false,
+  "tabWidth": 2,
+  "singleQuote": true,
+  "semi": true,
+  "trailingComma": "none",
+  "bracketSpacing": true,
+  "jsxBracketSameLine": true
+}
