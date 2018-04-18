@@ -1,4 +1,4 @@
-import labelsReducers from "./reducers";
+import labelsReducers from './reducers';
 
 export { default as labelsTypes } from './types';
 export { default as labelsActions } from './actions';

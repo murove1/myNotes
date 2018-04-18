@@ -91,8 +91,8 @@ const NoteCard = props => {
         <Typography component="p">{text}</Typography>
       </CardContent>
       <CardActions className={classes.cardActions}>
-        {labels.map((label, index) => (
-          <Chip key={index} label={label} className={classes.chip} />
+        {labels.map(label => (
+          <Chip key={label} label={label} className={classes.chip} />
         ))}
       </CardActions>
     </Card>
