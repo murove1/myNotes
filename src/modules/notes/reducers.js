@@ -1,13 +1,8 @@
-import {
-  ADD_NOTE,
-  EDIT_NOTE,
-  DELETE_NOTE,
-  DELETE_LABEL_FROM_NOTE
-} from '../actions';
+import { notesTypes } from './';
 
-function noteReducer(state = {}, action) {
+const noteReducer = (state = {}, action) => {
   switch (action.type) {
-    case EDIT_NOTE: {
+    case notesTypes.EDIT_NOTE: {
       if (state.id === action.payload.id) {
         return {
           ...state,
@@ -19,7 +14,7 @@ function noteReducer(state = {}, action) {
       return state;
     }
 
-    case DELETE_LABEL_FROM_NOTE:
+    case notesTypes.DELETE_LABEL_FROM_NOTE:
       return {
         ...state,
         labels: state.labels.filter(label => label !== action.payload.title)
@@ -28,27 +23,27 @@ function noteReducer(state = {}, action) {
     default:
       return state;
   }
-}
+};
 
-export default function reducer(state = [], action) {
+export default (state = [], action) => {
   switch (action.type) {
-    case ADD_NOTE: {
+    case notesTypes.ADD_NOTE: {
       return [action.payload, ...state];
     }
 
-    case EDIT_NOTE:
+    case notesTypes.EDIT_NOTE:
       return state.map(note => noteReducer(note, action));
 
-    case DELETE_NOTE: {
+    case notesTypes.DELETE_NOTE: {
       const index = state.findIndex(note => note.id === action.payload.id);
 
       return [...state.slice(0, index), ...state.slice(index + 1)];
     }
 
-    case DELETE_LABEL_FROM_NOTE:
+    case notesTypes.DELETE_LABEL_FROM_NOTE:
       return state.map(note => noteReducer(note, action));
 
     default:
       return state;
   }
-}
+};

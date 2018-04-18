@@ -2,10 +2,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import LabelsEditor from './LabelsEditor';
-import { editLabel, deleteLabel } from '../../actions';
+import { labelsActions, labelsOperations } from '../../modules/labels';
+
+const labelsActionsAndOperations = { ...labelsActions, ...labelsOperations };
 
 const mapStateToProps = state => ({ labels: state.labels });
 
 export default connect(mapStateToProps, dispatch =>
-  bindActionCreators({ editLabel, deleteLabel }, dispatch)
+  bindActionCreators(labelsActionsAndOperations, dispatch)
 )(LabelsEditor);

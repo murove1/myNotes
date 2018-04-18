@@ -1,0 +1,9 @@
+const ADD_LABEL = 'ADD_LABEL';
+const EDIT_LABEL = 'EDIT_LABEL';
+const DELETE_LABEL = 'DELETE_LABEL';
+
+export default {
+  ADD_LABEL,
+  EDIT_LABEL,
+  DELETE_LABEL
+};

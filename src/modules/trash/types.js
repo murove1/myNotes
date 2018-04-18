@@ -1,0 +1,7 @@
+const ADD_TO_TRASH = 'ADD_TO_TRASH';
+const DELETE_FROM_TRASH = 'DELETE_FROM_TRASH';
+
+export default {
+  ADD_TO_TRASH,
+  DELETE_FROM_TRASH
+};

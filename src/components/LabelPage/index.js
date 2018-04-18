@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 
 import LabelPage from './LabelPage';
-import { deleteNote } from '../../actions';
+import { notesOperations } from '../../modules/notes';
 
 const mapStateToProps = (state, ownProps) => ({
   notes: state.notes.filter(note =>
@@ -13,6 +13,6 @@ const mapStateToProps = (state, ownProps) => ({
 
 export default withRouter(
   connect(mapStateToProps, dispatch =>
-    bindActionCreators({ deleteNote }, dispatch)
+    bindActionCreators(notesOperations, dispatch)
   )(LabelPage)
 );

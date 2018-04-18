@@ -1,12 +1,12 @@
-import { ADD_TO_TRASH, DELETE_FROM_TRASH } from '../actions';
+import { trashTypes } from './';
 
-export default function reducer(state = [], action) {
+export default (state = [], action) => {
   switch (action.type) {
-    case ADD_TO_TRASH: {
+    case trashTypes.ADD_TO_TRASH: {
       return [action.payload, ...state];
     }
 
-    case DELETE_FROM_TRASH: {
+    case trashTypes.DELETE_FROM_TRASH: {
       const index = state.findIndex(note => note.id === action.payload.id);
 
       return [...state.slice(0, index), ...state.slice(index + 1)];
@@ -15,4 +15,4 @@ export default function reducer(state = [], action) {
     default:
       return state;
   }
-}
+};

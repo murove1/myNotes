@@ -4,10 +4,8 @@ import notes from './notes';
 import labels from './labels';
 import trash from './trash';
 
-const reducer = combineReducers({
+export default combineReducers({
   notes,
   labels,
   trash
 });
-
-export default reducer;
