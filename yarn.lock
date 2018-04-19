@@ -1973,6 +1973,14 @@ currently-unhandled@^0.4.1:
   dependencies:
     array-find-index "^1.0.1"
 
+custom-hoc@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/custom-hoc/-/custom-hoc-0.1.0.tgz#a0a9df30bdbc3f467eb40ad0d0e288e6a32227f9"
+  dependencies:
+    event-stack-factory "^1.0.1"
+    react "^16.2.0"
+    react-dom "^16.2.0"
+
 d@1:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/d/-/d-1.0.0.tgz#754bb5bfe55451da69a58b94d45f4c5b0462d58f"
@@ -2766,6 +2774,10 @@ event-emitter@~0.3.5:
   dependencies:
     d "1"
     es5-ext "~0.10.14"
+
+event-stack-factory@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/event-stack-factory/-/event-stack-factory-1.0.1.tgz#580aac2cc4edbc827ab5c6760c23286e198c107a"
 
 eventemitter3@1.x.x:
   version "1.2.0"

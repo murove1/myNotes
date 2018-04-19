@@ -45,8 +45,7 @@ class LabelsEditorItem extends Component {
   };
 
   handleSubmit = () => {
-    const { id, onEdit } = this.props;
-    const title = this.editInput.value;
+    const { id, title, onEdit } = this.props;
 
     if (title) {
       onEdit({ id, title });
@@ -56,7 +55,7 @@ class LabelsEditorItem extends Component {
   };
 
   render() {
-    const { classes, title } = this.props;
+    const { classes, title, onChange } = this.props;
 
     return (
       <ListItem className={classes.listItem}>
@@ -65,12 +64,7 @@ class LabelsEditorItem extends Component {
         </ListItemIcon>
         {this.state.editing ? (
           <div>
-            <Input
-              defaultValue={title}
-              inputRef={input => {
-                this.editInput = input;
-              }}
-            />
+            <Input value={title} onChange={onChange('title')} />
             <IconButton onClick={this.handleSubmit}>
               <SaveIcon />
             </IconButton>
@@ -98,7 +92,8 @@ LabelsEditorItem.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   onEdit: PropTypes.func.isRequired,
-  onDelete: PropTypes.func.isRequired
+  onDelete: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired
 };
 
 export default withStyles(styles)(LabelsEditorItem);

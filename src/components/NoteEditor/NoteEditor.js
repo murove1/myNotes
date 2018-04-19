@@ -37,9 +37,7 @@ class NoteEditor extends Component {
   };
 
   handleSubmit = () => {
-    const { editNote, id } = this.props;
-    const title = this.titleInput.value;
-    const text = this.textInput.value;
+    const { editNote, id, title, text } = this.props;
 
     if (text) {
       editNote({ id, title, text });
@@ -49,7 +47,7 @@ class NoteEditor extends Component {
   };
 
   render() {
-    const { classes, title, text } = this.props;
+    const { classes, title, text, onChange } = this.props;
 
     return (
       <div>
@@ -62,18 +60,15 @@ class NoteEditor extends Component {
           <DialogTitle>Edit note</DialogTitle>
           <DialogContent>
             <TextField
-              defaultValue={title}
               autoFocus
               margin="dense"
               label="Title"
               type="text"
               fullWidth
-              inputRef={input => {
-                this.titleInput = input;
-              }}
+              value={title}
+              onChange={onChange('title')}
             />
             <TextField
-              defaultValue={text}
               margin="dense"
               label="Text"
               type="text"
@@ -81,9 +76,8 @@ class NoteEditor extends Component {
               multiline
               rows="3"
               rowsMax="4"
-              inputRef={input => {
-                this.textInput = input;
-              }}
+              value={text}
+              onChange={onChange('text')}
             />
           </DialogContent>
           <DialogActions>
@@ -105,7 +99,8 @@ NoteEditor.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string,
   text: PropTypes.string.isRequired,
-  editNote: PropTypes.func.isRequired
+  editNote: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired
 };
 
 NoteEditor.defaultProps = {

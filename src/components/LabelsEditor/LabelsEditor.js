@@ -11,7 +11,7 @@ import List from 'material-ui/List';
 import Button from 'material-ui/Button';
 import IconButton from 'material-ui/IconButton';
 import EditIcon from 'material-ui-icons/Edit';
-import LabelsEditorItem from '../LabelsEditorItem/LabelsEditorItem';
+import LabelsEditorItem from '../LabelsEditorItem';
 
 const styles = {
   listInfoText: {
