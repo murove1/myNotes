@@ -32,23 +32,20 @@ class LabelsEditor extends Component {
     };
   }
 
-  handleClickOpen = () => {
-    this.setState({ open: true });
-  };
-
-  handleClose = () => {
-    this.setState({ open: false });
+  handleToggleOpen = () => {
+    this.setState({ open: !this.state.open });
   };
 
   render() {
     const { classes, labels, editLabel, deleteLabel } = this.props;
+    const { open } = this.state;
 
     return (
       <div>
-        <IconButton onClick={this.handleClickOpen}>
+        <IconButton onClick={this.handleToggleOpen}>
           <EditIcon />
         </IconButton>
-        <Dialog open={this.state.open} onClose={this.handleClose}>
+        <Dialog open={open} onClose={this.handleToggleOpen}>
           <DialogTitle>Edit labels</DialogTitle>
           <DialogContent>
             <List>
@@ -68,7 +65,7 @@ class LabelsEditor extends Component {
             </List>
           </DialogContent>
           <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
+            <Button onClick={this.handleToggleOpen} color="primary">
               Ok
             </Button>
           </DialogActions>

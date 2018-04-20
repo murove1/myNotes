@@ -19,7 +19,7 @@ const styles = {
 };
 
 const LabelPage = ({ classes, notes, deleteNote }) => (
-  <div>
+  <React.Fragment>
     {notes.length ? (
       <NotesList notes={notes} deleteNote={deleteNote} labelList />
     ) : (
@@ -30,7 +30,7 @@ const LabelPage = ({ classes, notes, deleteNote }) => (
         </Typography>
       </div>
     )}
-  </div>
+  </React.Fragment>
 );
 
 LabelPage.propTypes = {

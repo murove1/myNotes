@@ -14,13 +14,13 @@ const styles = {
 };
 
 const Layout = ({ classes }) => (
-  <div>
+  <React.Fragment>
     <Header />
     <SideBar />
     <main className={classes.main}>
       <Routes />
     </main>
-  </div>
+  </React.Fragment>
 );
 
 Layout.propTypes = {

@@ -20,7 +20,7 @@ const styles = {
 };
 
 const HomePage = ({ classes, notes, deleteNote }) => (
-  <div>
+  <React.Fragment>
     <AddNoteForm />
     {notes.length ? (
       <NotesList notes={notes} deleteNote={deleteNote} homeList />
@@ -32,7 +32,7 @@ const HomePage = ({ classes, notes, deleteNote }) => (
         </Typography>
       </div>
     )}
-  </div>
+  </React.Fragment>
 );
 
 HomePage.propTypes = {

@@ -20,7 +20,7 @@ const styles = {
 };
 
 const TrashPage = ({ classes, notes, deleteFromTrash }) => (
-  <div>
+  <React.Fragment>
     {notes.length ? (
       <NotesList notes={notes} deleteFromTrash={deleteFromTrash} trashList />
     ) : (
@@ -31,7 +31,7 @@ const TrashPage = ({ classes, notes, deleteFromTrash }) => (
         </Typography>
       </div>
     )}
-  </div>
+  </React.Fragment>
 );
 
 TrashPage.propTypes = {

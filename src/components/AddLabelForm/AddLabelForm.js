@@ -25,7 +25,7 @@ class AddLabelForm extends Component {
   };
 
   handleClose = () => {
-    this.setState({ open: false, value: '' });
+    this.setState(defaultState);
   };
 
   handleInputOnChange = event => {
@@ -48,7 +48,7 @@ class AddLabelForm extends Component {
     const { open, value } = this.state;
 
     return (
-      <div>
+      <React.Fragment>
         <ListItem button onClick={this.handleClickOpen}>
           <ListItemIcon>
             <AddIcon />
@@ -80,7 +80,7 @@ class AddLabelForm extends Component {
             </Button>
           </DialogActions>
         </Dialog>
-      </div>
+      </React.Fragment>
     );
   }
 }

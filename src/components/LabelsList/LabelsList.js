@@ -25,7 +25,7 @@ const styles = {
 };
 
 const LabelsList = ({ classes, labels }) => (
-  <div>
+  <React.Fragment>
     <ListSubheader className={classes.subHeader} disableSticky>
       Labels
       <LabelsEditor />
@@ -47,7 +47,7 @@ const LabelsList = ({ classes, labels }) => (
       ))}
       <AddLabelForm />
     </List>
-  </div>
+  </React.Fragment>
 );
 
 LabelsList.propTypes = {

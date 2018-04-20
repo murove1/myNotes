@@ -28,12 +28,8 @@ class NoteEditor extends Component {
     };
   }
 
-  handleClickOpen = () => {
-    this.setState({ open: true });
-  };
-
-  handleClose = () => {
-    this.setState({ open: false });
+  handleToggleOpen = () => {
+    this.setState({ open: !this.state.open });
   };
 
   handleSubmit = () => {
@@ -48,15 +44,16 @@ class NoteEditor extends Component {
 
   render() {
     const { classes, title, text, onChange } = this.props;
+    const { open } = this.state;
 
     return (
       <div>
         <IconButton
           className={classes.actionButton}
-          onClick={this.handleClickOpen}>
+          onClick={this.handleToggleOpen}>
           <EditIcon />
         </IconButton>
-        <Dialog open={this.state.open} onClose={this.handleClose} fullWidth>
+        <Dialog open={open} onClose={this.handleToggleOpen} fullWidth>
           <DialogTitle>Edit note</DialogTitle>
           <DialogContent>
             <TextField
@@ -81,7 +78,7 @@ class NoteEditor extends Component {
             />
           </DialogContent>
           <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
+            <Button onClick={this.handleToggleOpen} color="primary">
               Cancel
             </Button>
             <Button onClick={this.handleSubmit} color="primary">
