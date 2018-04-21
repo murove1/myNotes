@@ -1,11 +1,10 @@
+import { v4 as generateId } from 'node-uuid';
 import { notesTypes } from './';
-
-let noteNextId = 0;
 
 const addNote = noteParams => ({
   type: notesTypes.ADD_NOTE,
   payload: {
-    id: noteNextId++,
+    id: generateId(),
     ...noteParams
   }
 });

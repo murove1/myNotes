@@ -1,11 +1,10 @@
+import { v4 as generateId } from 'node-uuid';
 import { labelsTypes } from './';
-
-let labelNextId = 0;
 
 const addLabel = title => ({
   type: labelsTypes.ADD_LABEL,
   payload: {
-    id: labelNextId++,
+    id: generateId(),
     title
   }
 });
