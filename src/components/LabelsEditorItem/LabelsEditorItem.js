@@ -89,7 +89,7 @@ class LabelsEditorItem extends Component {
 
 LabelsEditorItem.propTypes = {
   classes: PropTypes.object.isRequired,
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   onEdit: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,

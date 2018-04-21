@@ -119,7 +119,7 @@ AddNoteForm.propTypes = {
   classes: PropTypes.object.isRequired,
   labels: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired
     })
   ).isRequired,

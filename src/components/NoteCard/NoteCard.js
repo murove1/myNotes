@@ -101,7 +101,7 @@ const NoteCard = props => {
 
 NoteCard.propTypes = {
   classes: PropTypes.object.isRequired,
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   title: PropTypes.string,
   text: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,

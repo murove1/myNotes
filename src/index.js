@@ -10,7 +10,8 @@ import store from './modules/store';
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter basename="/myNotes">
+    {/* <BrowserRouter basename="/myNotes"> --> for deploy github-page */}
+    <BrowserRouter>
       <Layout />
     </BrowserRouter>
   </Provider>,

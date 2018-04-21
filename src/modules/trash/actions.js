@@ -14,4 +14,11 @@ const deleteFromTrash = id => ({
   }
 });
 
-export default { addToTrash, deleteFromTrash };
+const deleteLabelForTrash = title => ({
+  type: trashTypes.DELETE_LABEL_FROM_TRASH,
+  payload: {
+    title
+  }
+});
+
+export default { addToTrash, deleteFromTrash, deleteLabelForTrash };

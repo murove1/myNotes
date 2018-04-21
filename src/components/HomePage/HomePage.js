@@ -39,7 +39,7 @@ HomePage.propTypes = {
   classes: PropTypes.object.isRequired,
   notes: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
       title: PropTypes.string,
       text: PropTypes.string.isRequired,
       color: PropTypes.string.isRequired

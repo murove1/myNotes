@@ -93,7 +93,7 @@ class NoteEditor extends Component {
 
 NoteEditor.propTypes = {
   classes: PropTypes.object.isRequired,
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   title: PropTypes.string,
   text: PropTypes.string.isRequired,
   editNote: PropTypes.func.isRequired,
