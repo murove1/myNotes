@@ -7,6 +7,15 @@ import './index.css';
 
 import Layout from './components/Layout/Layout';
 import store from './modules/store';
+import { saveState } from './utils/localStorage';
+
+store.subscribe(() => {
+  saveState({
+    notes: store.getState().notes,
+    labels: store.getState().labels,
+    trash: store.getState().trash
+  });
+});
 
 ReactDOM.render(
   <Provider store={store}>
