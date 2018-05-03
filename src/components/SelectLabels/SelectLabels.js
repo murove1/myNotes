@@ -26,7 +26,7 @@ const MenuProps = {
 };
 
 const SelectLabels = props => {
-  const { classes, labels, values, onLabelCheck } = props;
+  const { classes, labels, count, values, onLabelCheck } = props;
   const handleCheck = label => () => onLabelCheck(label.title);
 
   return (
@@ -36,8 +36,8 @@ const SelectLabels = props => {
         value={values}
         renderValue={selected => selected.join(', ')}
         MenuProps={MenuProps}>
-        {labels.length ? (
-          labels.map(label => (
+        {count ? (
+          Object.values(labels).map(label => (
             <MenuItem key={label.id}>
               <Checkbox
                 color="primary"
@@ -62,12 +62,13 @@ const SelectLabels = props => {
 
 SelectLabels.propTypes = {
   classes: PropTypes.object.isRequired,
-  labels: PropTypes.arrayOf(
+  labels: PropTypes.objectOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired
     })
   ).isRequired,
+  count: PropTypes.number.isRequired,
   values: PropTypes.arrayOf(PropTypes.string).isRequired,
   onLabelCheck: PropTypes.func.isRequired
 };

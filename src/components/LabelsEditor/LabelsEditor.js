@@ -37,11 +37,11 @@ class LabelsEditor extends Component {
   };
 
   render() {
-    const { classes, labels, editLabel, deleteLabel } = this.props;
+    const { classes, labels, count, editLabel, deleteLabel } = this.props;
     const { open } = this.state;
 
     return (
-      <div>
+      <React.Fragment>
         <IconButton onClick={this.handleToggleOpen}>
           <EditIcon />
         </IconButton>
@@ -49,8 +49,8 @@ class LabelsEditor extends Component {
           <DialogTitle>Edit labels</DialogTitle>
           <DialogContent>
             <List>
-              {labels.length ? (
-                labels.map(label => (
+              {count ? (
+                Object.values(labels).map(label => (
                   <LabelsEditorItem
                     key={label.id}
                     id={label.id}
@@ -70,19 +70,20 @@ class LabelsEditor extends Component {
             </Button>
           </DialogActions>
         </Dialog>
-      </div>
+      </React.Fragment>
     );
   }
 }
 
 LabelsEditor.propTypes = {
   classes: PropTypes.object.isRequired,
-  labels: PropTypes.arrayOf(
+  labels: PropTypes.objectOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired
     })
   ).isRequired,
+  count: PropTypes.number.isRequired,
   editLabel: PropTypes.func.isRequired,
   deleteLabel: PropTypes.func.isRequired
 };

@@ -31,7 +31,7 @@ const LabelsList = ({ classes, labels }) => (
       <LabelsEditor />
     </ListSubheader>
     <List>
-      {labels.map(label => (
+      {Object.values(labels).map(label => (
         <ListItem
           key={label.id}
           id={label.id}
@@ -52,7 +52,7 @@ const LabelsList = ({ classes, labels }) => (
 
 LabelsList.propTypes = {
   classes: PropTypes.object.isRequired,
-  labels: PropTypes.arrayOf(
+  labels: PropTypes.objectOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired

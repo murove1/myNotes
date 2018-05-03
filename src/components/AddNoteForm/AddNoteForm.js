@@ -70,7 +70,7 @@ class AddNoteForm extends Component {
   };
 
   render() {
-    const { classes, labels } = this.props;
+    const { classes, labels, labelCount } = this.props;
     const { title, text, color } = this.state;
 
     return (
@@ -98,6 +98,7 @@ class AddNoteForm extends Component {
             <ColorPicker value={color} onChange={this.handleColorChange} />
             <SelectLabels
               labels={labels}
+              count={labelCount}
               values={this.state.labels}
               onLabelCheck={this.handleLabelCheck}
             />
@@ -117,12 +118,13 @@ class AddNoteForm extends Component {
 
 AddNoteForm.propTypes = {
   classes: PropTypes.object.isRequired,
-  labels: PropTypes.arrayOf(
+  labels: PropTypes.objectOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired
     })
   ).isRequired,
+  labelCount: PropTypes.number.isRequired,
   addNote: PropTypes.func.isRequired
 };
 

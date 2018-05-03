@@ -1,7 +1,11 @@
-import { labelsTypes } from './';
+import { combineReducers } from 'redux';
+import labelsTypes from './types';
 
-const labelReducer = (state = {}, action) => {
+const labelReducer = (state, action) => {
   switch (action.type) {
+    case labelsTypes.ADD_LABEL:
+      return action.payload;
+
     case labelsTypes.EDIT_LABEL:
       if (state.id === action.payload.id) {
         return { ...state, title: action.payload.title };
@@ -14,22 +18,43 @@ const labelReducer = (state = {}, action) => {
   }
 };
 
-export default (state = [], action) => {
+const values = (state = {}, action) => {
   switch (action.type) {
-    case labelsTypes.ADD_LABEL: {
-      return [action.payload, ...state];
-    }
-
+    case labelsTypes.ADD_LABEL:
     case labelsTypes.EDIT_LABEL:
-      return state.map(label => labelReducer(label, action));
+      return {
+        ...state,
+        [action.payload.id]: labelReducer(state[action.payload.id], action)
+      };
 
     case labelsTypes.DELETE_LABEL: {
-      const index = state.findIndex(label => label.id === action.payload.id);
+      const { [action.payload.id]: deleteValue, ...newState } = state;
 
-      return [...state.slice(0, index), ...state.slice(index + 1)];
+      return newState;
     }
 
     default:
       return state;
   }
 };
+
+const keys = (state = [], action) => {
+  switch (action.type) {
+    case labelsTypes.ADD_LABEL:
+      return [...state, action.payload.id];
+
+    case labelsTypes.DELETE_LABEL: {
+      return state.filter(key => key !== action.payload.id);
+    }
+
+    default:
+      return state;
+  }
+};
+
+const labels = combineReducers({
+  values,
+  keys
+});
+
+export default labels;

@@ -4,7 +4,7 @@ import { trashActions } from '../trash';
 
 const deleteLabel = id => (dispatch, getState) => {
   const state = getState();
-  const labelToDelete = state.labels.find(label => label.id === id);
+  const labelToDelete = state.labels.values[id];
 
   dispatch(labelsActions.deleteLabel(id));
   dispatch(notesActions.deleteLabelForNote(labelToDelete.title));

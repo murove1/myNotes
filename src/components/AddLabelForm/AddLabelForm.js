@@ -35,7 +35,9 @@ class AddLabelForm extends Component {
   handleSubmit = () => {
     const { addLabel, labels } = this.props;
     const { value } = this.state;
-    const existingLabel = labels.find(label => label.title === value);
+    const existingLabel = Object.values(labels).find(
+      label => label.title === value
+    );
 
     if (!existingLabel) {
       addLabel(value);
@@ -87,7 +89,7 @@ class AddLabelForm extends Component {
 
 AddLabelForm.propTypes = {
   addLabel: PropTypes.func.isRequired,
-  labels: PropTypes.arrayOf(
+  labels: PropTypes.objectOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired

@@ -19,9 +19,9 @@ const styles = {
   }
 };
 
-const TrashPage = ({ classes, notes, deleteFromTrash }) => (
+const TrashPage = ({ classes, notes, count, deleteFromTrash }) => (
   <React.Fragment>
-    {notes.length ? (
+    {count ? (
       <NotesList notes={notes} deleteFromTrash={deleteFromTrash} trashList />
     ) : (
       <div className={classes.infoBlock}>
@@ -36,7 +36,7 @@ const TrashPage = ({ classes, notes, deleteFromTrash }) => (
 
 TrashPage.propTypes = {
   classes: PropTypes.object.isRequired,
-  notes: PropTypes.arrayOf(
+  notes: PropTypes.objectOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       title: PropTypes.string,
@@ -44,6 +44,7 @@ TrashPage.propTypes = {
       color: PropTypes.string.isRequired
     })
   ).isRequired,
+  count: PropTypes.number.isRequired,
   deleteFromTrash: PropTypes.func.isRequired
 };
 

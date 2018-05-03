@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
+
 import notesTypes from './types';
 
-const note = (state, action) => {
+const noteReducer = (state, action) => {
   switch (action.type) {
     case notesTypes.ADD_NOTE:
       return action.payload;
@@ -32,11 +33,19 @@ const values = (state = {}, action) => {
   switch (action.type) {
     case notesTypes.ADD_NOTE:
     case notesTypes.EDIT_NOTE:
-    case notesTypes.DELETE_LABEL_FROM_NOTE:
       return {
         ...state,
-        [action.payload.id]: note(state[action.payload.id], action)
+        [action.payload.id]: noteReducer(state[action.payload.id], action)
       };
+
+    case notesTypes.DELETE_LABEL_FROM_NOTE:
+      return Object.values(state).reduce(
+        (newState, note) => ({
+          ...newState,
+          [note.id]: noteReducer(note, action)
+        }),
+        {}
+      );
 
     case notesTypes.DELETE_NOTE: {
       const { [action.payload.id]: deleteValue, ...newState } = state;
