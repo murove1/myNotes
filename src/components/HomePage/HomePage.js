@@ -19,10 +19,10 @@ const styles = {
   }
 };
 
-const HomePage = ({ classes, notes, deleteNote }) => (
+const HomePage = ({ classes, notes, count, deleteNote }) => (
   <React.Fragment>
     <AddNoteForm />
-    {notes.length ? (
+    {count ? (
       <NotesList notes={notes} deleteNote={deleteNote} homeList />
     ) : (
       <div className={classes.infoBlock}>
@@ -37,7 +37,7 @@ const HomePage = ({ classes, notes, deleteNote }) => (
 
 HomePage.propTypes = {
   classes: PropTypes.object.isRequired,
-  notes: PropTypes.arrayOf(
+  notes: PropTypes.objectOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       title: PropTypes.string,
@@ -45,6 +45,7 @@ HomePage.propTypes = {
       color: PropTypes.string.isRequired
     })
   ).isRequired,
+  count: PropTypes.number.isRequired,
   deleteNote: PropTypes.func.isRequired
 };
 

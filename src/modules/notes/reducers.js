@@ -1,8 +1,12 @@
-import { notesTypes } from './';
+import { combineReducers } from 'redux';
+import notesTypes from './types';
 
-const noteReducer = (state = {}, action) => {
+const note = (state, action) => {
   switch (action.type) {
-    case notesTypes.EDIT_NOTE: {
+    case notesTypes.ADD_NOTE:
+      return action.payload;
+
+    case notesTypes.EDIT_NOTE:
       if (state.id === action.payload.id) {
         return {
           ...state,
@@ -12,7 +16,6 @@ const noteReducer = (state = {}, action) => {
       }
 
       return state;
-    }
 
     case notesTypes.DELETE_LABEL_FROM_NOTE:
       return {
@@ -25,25 +28,44 @@ const noteReducer = (state = {}, action) => {
   }
 };
 
-export default (state = [], action) => {
+const values = (state = {}, action) => {
   switch (action.type) {
-    case notesTypes.ADD_NOTE: {
-      return [action.payload, ...state];
-    }
-
+    case notesTypes.ADD_NOTE:
     case notesTypes.EDIT_NOTE:
-      return state.map(note => noteReducer(note, action));
+    case notesTypes.DELETE_LABEL_FROM_NOTE:
+      return {
+        ...state,
+        [action.payload.id]: note(state[action.payload.id], action)
+      };
 
     case notesTypes.DELETE_NOTE: {
-      const index = state.findIndex(note => note.id === action.payload.id);
+      const { [action.payload.id]: deleteValue, ...newState } = state;
 
-      return [...state.slice(0, index), ...state.slice(index + 1)];
+      return newState;
     }
-
-    case notesTypes.DELETE_LABEL_FROM_NOTE:
-      return state.map(note => noteReducer(note, action));
 
     default:
       return state;
   }
 };
+
+const keys = (state = [], action) => {
+  switch (action.type) {
+    case notesTypes.ADD_NOTE:
+      return [...state, action.payload.id];
+
+    case notesTypes.DELETE_NOTE: {
+      return state.filter(key => key !== action.payload.id);
+    }
+
+    default:
+      return state;
+  }
+};
+
+const notes = combineReducers({
+  values,
+  keys
+});
+
+export default notes;

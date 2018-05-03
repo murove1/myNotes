@@ -30,14 +30,10 @@ const NotesList = props => {
   return (
     <div className={classes.containerGrid}>
       <Masonry options={masonryOptions} className={classes.grid}>
-        {notes.map(note => (
+        {Object.values(notes).map(note => (
           <NoteCard
             key={note.id}
-            id={note.id}
-            title={note.title}
-            text={note.text}
-            color={note.color}
-            labels={note.labels}
+            {...note}
             homeList={homeList}
             trashList={trashList}
             labelList={labelList}
@@ -52,7 +48,7 @@ const NotesList = props => {
 
 NotesList.propTypes = {
   classes: PropTypes.object.isRequired,
-  notes: PropTypes.arrayOf(
+  notes: PropTypes.objectOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       title: PropTypes.string,
