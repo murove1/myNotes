@@ -6,7 +6,7 @@ const noteReducer = (state, action) => {
     case trashTypes.ADD_TO_TRASH:
       return action.payload;
 
-    case trashTypes.DELETE_LABEL_FROM_TRASH:
+    case trashTypes.DELETE_LABEL:
       return {
         ...state,
         labels: state.labels.filter(label => label !== action.payload.title)
@@ -25,7 +25,7 @@ const values = (state = {}, action) => {
         [action.payload.id]: noteReducer(state[action.payload.id], action)
       };
 
-    case trashTypes.DELETE_LABEL_FROM_TRASH:
+    case trashTypes.DELETE_LABEL:
       return Object.values(state).reduce(
         (newState, note) => ({
           ...newState,

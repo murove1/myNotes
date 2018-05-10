@@ -24,7 +24,7 @@ const deleteNote = id => ({
 });
 
 const deleteLabelForNote = title => ({
-  type: notesTypes.DELETE_LABEL_FROM_NOTE,
+  type: notesTypes.DELETE_LABEL,
   payload: {
     title
   }

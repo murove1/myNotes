@@ -15,7 +15,7 @@ const deleteFromTrash = id => ({
 });
 
 const deleteLabelForTrash = title => ({
-  type: trashTypes.DELETE_LABEL_FROM_TRASH,
+  type: trashTypes.DELETE_LABEL,
   payload: {
     title
   }

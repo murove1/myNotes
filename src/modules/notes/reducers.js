@@ -18,7 +18,7 @@ const noteReducer = (state, action) => {
 
       return state;
 
-    case notesTypes.DELETE_LABEL_FROM_NOTE:
+    case notesTypes.DELETE_LABEL:
       return {
         ...state,
         labels: state.labels.filter(label => label !== action.payload.title)
@@ -38,7 +38,7 @@ const values = (state = {}, action) => {
         [action.payload.id]: noteReducer(state[action.payload.id], action)
       };
 
-    case notesTypes.DELETE_LABEL_FROM_NOTE:
+    case notesTypes.DELETE_LABEL:
       return Object.values(state).reduce(
         (newState, note) => ({
           ...newState,
