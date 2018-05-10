@@ -5,13 +5,7 @@ import { withStyles } from 'material-ui/styles';
 import Header from '../Header/Header';
 import SideBar from '../SideBar/SideBar';
 import Routes from '../Routes/Routes';
-
-const styles = {
-  main: {
-    marginTop: 64,
-    paddingLeft: 280
-  }
-};
+import styles from './styles';
 
 const Layout = ({ classes }) => (
   <React.Fragment>

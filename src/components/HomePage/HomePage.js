@@ -6,18 +6,7 @@ import LightbulbOutline from 'material-ui-icons/LightbulbOutline';
 import Typography from 'material-ui/Typography';
 import AddNoteForm from '../AddNoteForm';
 import NotesList from '..//NotesList/NotesList';
-
-const styles = {
-  infoBlock: {
-    margin: '100px auto',
-    textAlign: 'center',
-    color: '#BDBDBD'
-  },
-  infoIcon: {
-    width: 120,
-    height: 120
-  }
-};
+import styles from './styles';
 
 const HomePage = ({ classes, notes, count, deleteNote }) => (
   <React.Fragment>

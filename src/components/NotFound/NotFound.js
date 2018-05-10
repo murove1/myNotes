@@ -5,18 +5,7 @@ import { withRouter } from 'react-router-dom';
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
 import ThumbDown from 'material-ui-icons/ThumbDown';
-
-const styles = {
-  infoBlock: {
-    margin: '40vh auto',
-    textAlign: 'center',
-    color: '#BDBDBD'
-  },
-  infoIcon: {
-    width: 120,
-    height: 120
-  }
-};
+import styles from './styles';
 
 const NotFound = ({ classes, location }) => (
   <div className={classes.infoBlock}>

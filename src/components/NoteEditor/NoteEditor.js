@@ -11,13 +11,7 @@ import Dialog, {
 } from 'material-ui/Dialog';
 import IconButton from 'material-ui/IconButton';
 import EditIcon from 'material-ui-icons/Edit';
-
-const styles = {
-  actionButton: {
-    width: 34,
-    height: 34
-  }
-};
+import styles from './styles';
 
 class NoteEditor extends Component {
   constructor(props) {

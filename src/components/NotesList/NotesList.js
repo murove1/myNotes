@@ -4,15 +4,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Masonry from 'react-masonry-component';
 import NoteCard from '../NoteCard/NoteCard';
-
-const styles = {
-  containerGrid: {
-    padding: '30px 50px 0'
-  },
-  grid: {
-    margin: '0 auto'
-  }
-};
+import styles from './styles';
 
 const masonryOptions = { gutter: 20, isFitWidth: true };
 

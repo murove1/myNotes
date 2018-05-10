@@ -7,17 +7,7 @@ import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import LightbulbOutline from 'material-ui-icons/LightbulbOutline';
-
-const styles = {
-  flex: {
-    flex: 1
-  },
-  logoIcon: {
-    marginLeft: -8,
-    marginRight: 10,
-    color: '#fff'
-  }
-};
+import styles from './styles';
 
 const Header = ({ classes }) => (
   <AppBar position="fixed">

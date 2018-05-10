@@ -5,19 +5,7 @@ import { withStyles } from 'material-ui/styles';
 import TrashIcon from 'material-ui-icons/Delete';
 import Typography from 'material-ui/Typography';
 import NotesList from '../NotesList/NotesList';
-
-const styles = {
-  infoBlock: {
-    width: 500,
-    margin: '40vh auto',
-    textAlign: 'center',
-    color: '#BDBDBD'
-  },
-  infoIcon: {
-    width: 120,
-    height: 120
-  }
-};
+import styles from './styles';
 
 const TrashPage = ({ classes, notes, count, deleteFromTrash }) => (
   <React.Fragment>

@@ -5,18 +5,7 @@ import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
 import LabelIcon from 'material-ui-icons/Label';
 import NotesList from '../NotesList/NotesList';
-
-const styles = {
-  infoBlock: {
-    margin: '40vh auto',
-    textAlign: 'center',
-    color: '#BDBDBD'
-  },
-  infoIcon: {
-    width: 120,
-    height: 120
-  }
-};
+import styles from './styles';
 
 const LabelPage = ({ classes, notes, deleteNote }) => (
   <React.Fragment>

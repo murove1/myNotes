@@ -7,23 +7,7 @@ import { FormControl } from 'material-ui/Form';
 import Select from 'material-ui/Select';
 import Checkbox from 'material-ui/Checkbox';
 import { ListItemText } from 'material-ui/List';
-
-const styles = {
-  formControl: {
-    width: 270
-  },
-  listItemText: {
-    textAlign: 'center'
-  }
-};
-
-const MenuProps = {
-  PaperProps: {
-    style: {
-      width: 250
-    }
-  }
-};
+import styles from './styles';
 
 const SelectLabels = props => {
   const { classes, labels, count, values, onLabelCheck } = props;
@@ -34,8 +18,7 @@ const SelectLabels = props => {
       <Select
         multiple
         value={values}
-        renderValue={selected => selected.join(', ')}
-        MenuProps={MenuProps}>
+        renderValue={selected => selected.join(', ')}>
         {count ? (
           Object.values(labels).map(label => (
             <MenuItem key={label.id}>

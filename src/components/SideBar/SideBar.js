@@ -8,19 +8,7 @@ import Divider from 'material-ui/Divider';
 import NotesIcon from 'material-ui-icons/Receipt';
 import TrashIcon from 'material-ui-icons/Delete';
 import LabelsList from '../LabelsList';
-
-const styles = {
-  sideNav: {
-    position: 'fixed',
-    top: 0,
-    bottom: 0,
-    zIndex: 1000,
-    width: 280,
-    paddingTop: 64,
-    backgroundColor: '#fff',
-    overflowY: 'auto'
-  }
-};
+import styles from './styles';
 
 const SideBar = ({ classes }) => (
   <div className={classes.sideNav}>

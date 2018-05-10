@@ -12,17 +12,7 @@ import List, {
 import LabelIcon from 'material-ui-icons/Label';
 import LabelsEditor from '../LabelsEditor';
 import AddLabelForm from '../AddLabelForm';
-
-const styles = {
-  subHeader: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    paddingRight: 0
-  },
-  listItem: {
-    wordWrap: 'break-word'
-  }
-};
+import styles from './styles';
 
 const LabelsList = ({ classes, labels }) => (
   <React.Fragment>
